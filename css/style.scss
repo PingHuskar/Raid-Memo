@@ -1,0 +1,40 @@
+$primaryColor : chocolate;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+body {
+    display: flex;
+    overflow: hidden;
+    background: #222;
+    color: wheat;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    height: 100vh;
+    width: 100%;
+    .ship {
+        width: 40%;
+        margin: 3vh 0;
+        font-size: 3em;
+        text-align: center;
+        font-weight: bold;
+        border: 5px solid $primaryColor;
+        border-radius: 30px;
+        &:hover {
+            background: rgba($primaryColor, 0.2);
+        }
+        &::selection {
+            background: rgba($primaryColor, 0.2);
+            color: $primaryColor;
+        }
+    }
+}
