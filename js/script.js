@@ -1,7 +1,13 @@
 const searchParam = new URLSearchParams(location.search)
 for (var shipNum = 1; shipNum <= 4; shipNum++) {
     document.getElementsByClassName('container')[0].innerHTML += `<div class="ship" id="ship${shipNum}" contenteditable oninput="main();" onkeyup="animateShip(this.id)"></div>`
-    document.getElementById(`ship${shipNum}`).innerText = atob(searchParam.get(`ship${shipNum}`))
+    var shipVal = searchParam.get(`ship${shipNum}`)
+    if (shipVal !== null) {
+        document.getElementById(`ship${shipNum}`).innerText = atob(shipVal)
+    }
+    else {
+        document.getElementById(`ship${shipNum}`).innerText = 0
+    }
 }
 TweenMax.staggerFrom('.ship',1,{
     x: screen.width,autoAlpha:0,ease:Linear.easeNone
